@@ -1,16 +1,17 @@
 
 #!/bin/bash
 
-if [[ $# -eq 0 ]]; then
+
+if [[ $# == 0 ]]; then
 	printf "Usage: %s FILE [NUM]\n" "$(basename "$0")"
 	exit 1
 else
 	if [[ -f "$1" ]]; then
-	if [[ $# -gt 1 ]]; then
-		i=0
+	if [[ $# > 1 ]]; then
+		COUNTER=0
 		while read -r LINE; do
-			let ++i
-			if [[ i -le $2 ]]; then
+			let COUNTER=$[$COUNTER+1]
+			if [[ COUNTER -le $2 ]]; then
 				printf "%s\n" "$LINE"
 
 			else
@@ -18,10 +19,10 @@ else
 			fi
 		done < "$1"
 	else
-		i=0
+		COUNTER=0
 		while read -r LINE; do
-			let ++i
-			if [[ i -le 3 ]]; then
+			let COUNTER=$[$COUNTER+1]
+			if [[ COUNTER -le 3 ]]; then
 				printf "%s\n" "$LINE"
 			else
 				continue

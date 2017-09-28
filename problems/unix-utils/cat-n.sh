@@ -4,16 +4,15 @@
 COUNTER=0
 FILE=$1
 
-if [[ $# -eq 0 ]]; then
+if [[ $# == 0 ]]; then
         printf "Usage: %s file\n" "(basename "$0")"
         exit 1
 else
         if [[ -f "$1" ]]; then
-                i=0
 
                 while read -r LINE; do
-                        let ++i
-                        printf "%1d %s\n" "$i" "$LINE"
+                        let COUNTER=$[$COUNTER+1]
+                        printf "%1d %s\n" "$COUNTER" "$LINE"
 
                 done < "$1"
         else
