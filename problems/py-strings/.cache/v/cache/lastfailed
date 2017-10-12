@@ -1,6 +1,1 @@
-{
-  "test.py::test_gc": true,
-  "test.py::test_gc2": true,
-  "test.py::test_trimmer": true,
-  "test.py::test_usage": true
-}
+{}
